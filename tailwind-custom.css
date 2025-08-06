@@ -1,0 +1,55 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@layer utilities {
+  .animate-fadeInUp {
+    @apply opacity-0 translate-y-6;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s infinite ease-in-out;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+}
+
+/* Hover Glow Effect */
+@layer components {
+  .hover-glow {
+    @apply transition-transform transform hover:scale-105 hover:shadow-2xl;
+  }
+  .hover-glow-blue {
+    @apply hover:shadow-blue-500/50;
+  }
+  .hover-glow-purple {
+    @apply hover:shadow-purple-500/50;
+  }
+}
+
+/* Light/Dark Theme Colors */
+@layer base {
+  body {
+    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
+  }
+}
+
+/* Smooth Transition for Theme Switch */
+@layer utilities {
+  .theme-transition {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
